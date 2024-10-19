@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Tablas disponibles{% endblock %}
+
+{% block content %}
+    <h2>Tablas disponibles</h2>
+    
+    {% if conexion == "bien" %}
+        <ul>
+            {% for tabla in tablas %}
+                <li><a href="{{ url_for('detalle', tabla=tabla[0]) }}">{{ tabla[0] }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Error al conectar con la base de datos.</p>
+        <p>{{ error }}</p>
+    {% endif %}
+    
+    <button onclick="location.href='{{ url_for('logout') }}'">Salir</button>
+
+{% endblock %}

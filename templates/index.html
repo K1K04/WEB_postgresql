@@ -1,0 +1,36 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Conexión a PostgreSQL{% endblock %}
+
+{% block content %}
+    <h2>Conectar a la Base de Datos</h2>
+  
+    <center>
+        <img src="https://www.bairesdev.com/wp-content/uploads/2021/08/PostgreSQL-2.svg" alt="PostgreSQL Logo" style="width: 500px;">
+    </center>
+
+    <form action="/datos" method="POST">
+        <label for="usuario">Usuario:</label>
+        <input type="text" name="usuario" id="usuario" required><br>
+        
+        <label for="contrasenia">Contraseña:</label>
+        <input type="password" name="contrasenia" id="contrasenia" required><br>
+        
+        <label for="basedatos">Base de Datos:</label>
+        <input type="text" name="basedatos" id="basedatos" required><br>
+        
+        <button type="submit">Conectar</button>
+    </form>
+    
+    <!-- Mostrar mensaje de error si existe -->
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+{% endblock %}
+
+
+
+
+
+

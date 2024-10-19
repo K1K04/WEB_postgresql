@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Detalles de la tabla {{ tabla }}{% endblock %}
+
+{% block content %}
+    <h2>Tabla: {{ tabla }}</h2>
+    
+    <table border="1">
+        <thead>
+            <tr>
+                {% for columna in columnas %}
+                    <th>{{ columna[0] }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for fila in filas %}
+                <tr>
+                    {% for valor in fila %}
+                        <td>{{ valor }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <button onclick="location.href='{{ url_for('logout') }}'">Salir</button>
+{% endblock %}
